@@ -1,5 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import { StateErrorType } from "../../types";
+import axios, { AxiosError } from "axios";
 
 export function onTextChange(
   event: ChangeEvent<HTMLInputElement>,
@@ -16,9 +17,9 @@ export function onTextChange(
 }
 
 
-export const FormatError = (error:any, setError:StateErrorType, message:string) => {
+export const FormatError = (error: any | AxiosError , setError:StateErrorType, message:string) => {
   console.log(error);
-  if (error instanceof Error && !error?.response?.data) {
+  if (error instanceof Error && !axios.isAxiosError(error)) {
     setError({
       message: message,
       error: error.message,

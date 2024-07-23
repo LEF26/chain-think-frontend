@@ -12,20 +12,25 @@ export const AuthContextProvider = ({
 }) => {
   const [authDetails, setAuthDetails] = useState<AuthenticationType | null>(
     () => {
-      const details: string | null = localStorage.getItem("authDetails");
-      if (typeof details === "string") {
-        return JSON.parse(details);
-      } else {
-        return details;
+      try {
+        if (typeof window !== "undefined" && window.localStorage) {
+          const details: string | null = localStorage.getItem("authDetails");
+          if (details) {
+            return JSON.parse(details);
+          }
+        }
+      } catch (error) {
+        console.error("Error accessing localStorage:", error);
       }
+      return null;
     }
   );
 
   useEffect(() => {
-
-    console.log('Triggered')
-    localStorage.setItem("authDetails", JSON.stringify(authDetails));
-
+    if (typeof window !== "undefined") {
+      console.log("Triggered");
+      localStorage.setItem("authDetails", JSON.stringify(authDetails));
+    }
   }, [authDetails?.token, authDetails?.user, authDetails]);
 
   return (

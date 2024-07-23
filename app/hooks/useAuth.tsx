@@ -13,6 +13,7 @@ function useAuth() {
   const AuthHandler = useContext<AuthContextType | null>(AuthContext);
 
   const [signInDetails, setSignInDetails] = useState<User>({
+    id: '',
     email: "sample@gmail.com",
     password: "dummypass",
     full_name: '',

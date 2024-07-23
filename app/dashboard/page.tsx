@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import Header from "@/app/components/Header";
 import TasksContainer from "@/app/components/TasksContainer";
-import WithAuth from "../hocs/WthAuth";
+import WithAuth from "../hocs/WithAuth";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import ProfileModal from "../components/ProfileUpdateModal";

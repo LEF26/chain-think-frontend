@@ -20,6 +20,7 @@ export interface Task {
 type Token = string;
 
 export type User = {
+  id: string;
   email: string;
   password: string;
   full_name:string,

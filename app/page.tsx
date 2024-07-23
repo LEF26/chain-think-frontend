@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +17,6 @@ export default function Home() {
       </div>
 
       <Image
-        className=""
         height={300}
         width={300}
         alt="Cryto Logo"
@@ -30,7 +31,7 @@ export default function Home() {
           Get Started
         </Link>
         <span className="text-[10px] text-center px-[5px]">
-          By tapping 'Get Started' you agree and adhere to out{" "}
+          By tapping Get Started you agree and adhere to out{" "}
           <span className="text-primaryColor">Terms of Service</span> and{" "}
           <span className="text-primaryColor">Privacy Policy</span>
         </span>
