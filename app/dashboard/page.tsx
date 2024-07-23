@@ -2,7 +2,7 @@
 
 import Header from "@/app/components/Header";
 import TasksContainer from "@/app/components/TasksContainer";
-import withAuth from "../hocs/withAuth";
+import WithAuth from "../hocs/WthAuth";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import ProfileModal from "../components/ProfileUpdateModal";
@@ -20,7 +20,7 @@ function Dashboard() {
   return (
     <main className="h-screen w-screen flex relative flex-col items-center justify-between text-gray-300">
       <ProfileModal isOpen={isOpen} toogelModal={toogleModal}/>
-      {withAuth(Header, toogleModal)}
+      {WithAuth(Header, toogleModal)}
       <TasksContainer />
     </main>
   );
