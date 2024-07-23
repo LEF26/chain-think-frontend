@@ -1,0 +1,49 @@
+import { FaCircleArrowUp, FaCircleArrowDown } from "react-icons/fa6";
+import { MdSwapHorizontalCircle } from "react-icons/md";
+import { AiFillCodepenCircle } from "react-icons/ai";
+
+function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
+  return (
+    <div className="w-full flex justify-center items-center h-[80%] rounded-[15px]">
+      <div className="w-[95%] md:w-[50%] h-full flex flex-col md:flex-row bg-[#1b1b24]/50 shadow-black/30 shadow-sm rounded-[15px] px-5 md:px-10 py-2">
+        {/* Left hand of activity */}
+        <div className=" h-[50%] md:h-fit md:w-[50%] w-full flex flex-col gap-[10%]">
+          <h1 className="text-lg font-semibold ">Total Balance</h1>
+
+          <div className="flex md:flex-col items-end md:items-start gap-[10px]">
+            <span className="text-gray-700 hidden md:block font-semibold text-sm">
+              My Balance
+            </span>
+            <span className="text-xl md:text-3xl font-semibold ">$0.00</span>
+            <span className="text-gray-700 font-semibold text-sm">
+              0.0000000 BTC
+            </span>
+          </div>
+        </div>
+
+        {/* Right hand of activity */}
+        <div className=" w-full md:w-[50%] grid grid-cols-4 md:grid-cols-2 pt-5">
+          <button className="flex flex-col text-gray-700 text-sm items-center">
+            <FaCircleArrowUp className="text-primaryColor text-3xl" />
+            Send
+          </button>
+          <button className="flex flex-col text-gray-700 text-sm items-center">
+            <FaCircleArrowDown className="text-primaryColor text-3xl" />
+            Receive
+          </button>
+          <button className="flex flex-col text-gray-700 text-sm items-center">
+            <MdSwapHorizontalCircle className="text-primaryColor text-3xl" />
+            Swap
+          </button>
+
+          <button onClick={toogleModal} className="flex flex-col cursor-pointer hover:underline text-gray-700 text-sm items-center">
+            <AiFillCodepenCircle className="text-primaryColor text-3xl" />
+            Withdraw
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default ActivityBoard;
