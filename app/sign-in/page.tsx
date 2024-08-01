@@ -6,20 +6,25 @@ import useAuth from "../hooks/useAuth";
 import FormButton from "../components/FormButton";
 import { FormEvent, FormEventHandler } from "react";
 import { useRouter } from "next/navigation";
+import useFirestore from "../hooks/useFirestore";
 
 // export const metadata: Metadata = {
 //     title: 'Chainthink Grants Program | Sign In'
 // }
 
 function SignUp() {
-  const { loading, signIn, signInDetails, onTextChange, error } = useAuth();
+  const { loading, signInDetails, onTextChange, error, firebaseSignIn } = useAuth();
  const router = useRouter()
 
   function handleOnSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    signIn(() => {
+
+    // signIn(() => {
+    // });
+
+    firebaseSignIn(() => {
       router.push('/dashboard')
-    });
+    })
   }
 
   return (

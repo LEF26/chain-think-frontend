@@ -1,6 +1,7 @@
 import { Dispatch, FormEvent, SetStateAction } from "react";
 import useAuth from "../hooks/useAuth";
 import FormButton from "./FormButton";
+import useFirestore from "../hooks/useFirestore";
 
 interface ProfileModalType {
   isOpen: boolean;
@@ -8,12 +9,12 @@ interface ProfileModalType {
 }
 
 function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
-  const { loading, signInDetails, updateProfile, onTextChange, error } =
-    useAuth();
+  const { loading, updateDetails, updateUserInfoToUserBucket, onTextChange, error } =
+    useFirestore();
 
   const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    updateProfile(() => {
+    updateUserInfoToUserBucket(() => {
       toogelModal()
     });
   };
@@ -41,10 +42,10 @@ function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
               Full Name
             </label>
             <input
-              value={signInDetails["full_name"]}
+              value={updateDetails["displayName"]}
               onChange={(e) => onTextChange(e)}
               type="text"
-              name="full_name"
+              name="displayName"
               required
               className="w-full text-sm focus:outline-primaryColor border-gray-400 bg-transparent border rounded-md p-2"
               placeholder="Enter Full Name "
@@ -54,10 +55,10 @@ function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
               Bank Account Number
             </label>
             <input
-              value={signInDetails["bank_account_number"]}
+              value={updateDetails["bankAccountNumber"]}
               onChange={(e) => onTextChange(e)}
               type="text"
-              name="bank_account_number"
+              name="bankAccountNumber"
               required
               className="w-full text-sm focus:outline-primaryColor border-gray-400 bg-transparent border rounded-md p-2"
               placeholder="Enter your account number"
@@ -66,7 +67,7 @@ function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
               Etheruem Address
             </label>
             <input
-              value={signInDetails["eth"]}
+              value={updateDetails["eth"]}
               onChange={(e) => onTextChange(e)}
               type="text"
               name="eth"
@@ -78,7 +79,7 @@ function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
               Tron Address
             </label>
             <input
-              value={signInDetails["tron"]}
+              value={updateDetails["tron"]}
               onChange={(e) => onTextChange(e)}
               type="text"
               name="tron"
@@ -90,7 +91,7 @@ function ProfileModal({ isOpen, toogelModal }: ProfileModalType) {
               Bitcoin network Address
             </label>
             <input
-              value={signInDetails["bsc"]}
+              value={updateDetails["bsc"]}
               onChange={(e) => onTextChange(e)}
               type="text"
               name="bsc"

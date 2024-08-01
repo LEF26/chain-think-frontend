@@ -32,7 +32,7 @@ export type User = {
 
 export interface AuthenticationType {
   token: Token;
-  user: User;
+  user: any;
 }
 
 //ComponentsTypes
@@ -43,8 +43,8 @@ export interface FormButtonType {
 }
 
 interface AuthContextType {
-  authDetails: AuthenticationType | null;
-  setAuthDetails: Dispatch<SetStateAction<AuthenticationType | null>>;
+  authDetails: any | null;
+  setAuthDetails: Dispatch<SetStateAction<any | null>>;
 }
 
 export type ErrorType = {

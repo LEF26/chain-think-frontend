@@ -2,19 +2,15 @@ import Image from "next/image";
 import ActivityBoard from "./ActivityBoard";
 import { User } from "@/types";
 
-function Header({user, toogleModal}: {user:User, toogleModal: () => void}) {
+function Header({user, toogleModal}: {user:any, toogleModal: () => void}) {
 
   const getFullName = () => {
-    if(typeof user?.full_name !== 'undefined'){
-      return user?.full_name ? user?.full_name : user?.email
-    }
-
-    return 'No name';
+      return user?.displayName ? user?.displayName : user?.email
   }
 
   return (
     <header className=" h-[35%] w-full flex flex-col gap-[10%] justify-between rounded-b-[15px] bg-[#1b1b24]/70  p-4">
-      <div className=" h-[40px] flex items-center  rounded-[30px] w-[50%] md:w-[20%]">
+      <div onClick={toogleModal} className=" h-[40px] cursor-pointer flex items-center  rounded-[30px] w-[50%] md:w-[20%]">
         <Image
           className="h-[40px]  w-[40px]  rounded-full"
           height={300}

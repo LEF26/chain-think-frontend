@@ -10,7 +10,7 @@ export const AuthContextProvider = ({
 }: {
   children: ReactElement;
 }) => {
-  const [authDetails, setAuthDetails] = useState<AuthenticationType | null>(
+  const [authDetails, setAuthDetails] = useState<any | null>(
     () => {
       try {
         if (typeof window !== "undefined" && window.localStorage) {
