@@ -3,6 +3,16 @@ import { MdSwapHorizontalCircle } from "react-icons/md";
 import { AiFillCodepenCircle } from "react-icons/ai";
 
 function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText('05693993094995995059')
+      .then(() => {
+        alert("Address copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
+  };
+
   return (
     <div className="w-full flex justify-center items-center h-[80%] rounded-[15px]">
       <div className="w-[95%] md:w-[50%] h-full flex flex-col md:flex-row bg-[#1b1b24]/50 shadow-black/30 shadow-sm rounded-[15px] px-5 md:px-10 py-2">
@@ -23,7 +33,7 @@ function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
 
         {/* Right hand of activity */}
         <div className=" w-full md:w-[50%] grid grid-cols-4 md:grid-cols-2 pt-5">
-          <button className="flex flex-col text-gray-700 text-sm items-center">
+          <button onClick={handleCopyClick} className="flex flex-col text-gray-700 text-sm items-center">
             <FaCircleArrowUp className="text-primaryColor text-3xl" />
             Send
           </button>
