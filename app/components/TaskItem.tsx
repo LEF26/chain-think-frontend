@@ -29,7 +29,7 @@ function TaskItem({ data }: { data: any }) {
   const checkTaskState = () => {
     let task;
     if (AuthHandler?.authDetails?.tasks_status) {
-      Object.keys(AuthHandler?.authDetails?.tasks_status).map(
+      Object.keys(AuthHandler?.authDetails?.tasks_status)?.map(
         (currentKey: string) => {
           if (currentKey === data.id) {
             task = {
