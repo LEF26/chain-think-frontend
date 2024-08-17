@@ -28,7 +28,6 @@ export const AuthContextProvider = ({
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log("Triggered");
       localStorage.setItem("authDetails", JSON.stringify(authDetails));
     }
   }, [authDetails?.token, authDetails?.user, authDetails]);

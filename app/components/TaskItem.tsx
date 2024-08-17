@@ -10,7 +10,7 @@ function TaskItem({ data }: { data: any }) {
   const { makeUpdateToUserBucket } = useFirestore();
 
   const handleOnTaskClick = async () => {
-    window.location.href = data?.link;
+    window.open(data?.link, '_blank');
     if (!currentUserTask?.data?.done) {
       await makeUpdateToUserBucket(
         {

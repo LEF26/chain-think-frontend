@@ -60,7 +60,10 @@ function ActivityBoard({
           </button>
           <button
             onClick={() => {
-              window.location.href = "https://rar6inz1i6c.typeform.com/to/gbL1deEd";
+              window.open(
+                "https://rar6inz1i6c.typeform.com/to/gbL1deEd",
+                "_blank"
+              );
             }}
             className="flex flex-col text-gray-700 hover:underline text-sm items-center"
           >

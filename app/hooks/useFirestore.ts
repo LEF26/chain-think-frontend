@@ -34,7 +34,6 @@ function useFirestore() {
 
   const onTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    console.log(name);
 
     setUpdateDetails((prev: any) => {
       return {
@@ -55,7 +54,6 @@ function useFirestore() {
     const querySnapshot = await getDocs(taskQuery);
 
     querySnapshot.forEach((current) => {
-      console.log(current.data());
       tasks.push({ ...current.data() });
     });
 
@@ -90,7 +88,6 @@ function useFirestore() {
       const response = await getDoc(userRef);
 
       const data = response.data();
-      console.log("Success", data);
       handleSignInSuccess(data, successHandler);
     } catch (error) {
       FormatError(error, setError, "404 error");
@@ -104,7 +101,6 @@ function useFirestore() {
     try {
       const userRef = doc(db, "users", AuthHandler?.authDetails.uid);
       const response = await updateDoc(userRef, { ...updateDetails });
-      console.log(response);
       retrieveUserFromUserBucket(AuthHandler?.authDetails, successHandler);
     } catch (error) {
       FormatError(error, setError, "Update Profile Error");
@@ -121,7 +117,6 @@ function useFirestore() {
     try {
       const userRef = doc(db, "users", AuthHandler?.authDetails.uid);
       const response = await updateDoc(userRef, { ...newInfo });
-      console.log(response);
       await retrieveUserFromUserBucket(
         AuthHandler?.authDetails,
         successHandler
@@ -145,8 +140,6 @@ function useFirestore() {
 
     uploadBytes(ReceiptsRef, file)
       .then((snapshot) => {
-        console.log("Uploaded a blob or file!");
-        console.log(snapshot);
         if (AuthHandler?.authDetails?.receipts) {
             makeUpdateToUserBucket({
               receipts: [...AuthHandler?.authDetails?.receipts, snapshot.metadata.fullPath ]

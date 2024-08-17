@@ -39,8 +39,6 @@ function useAuth() {
 
   const onTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    console.log(name);
-
     setSignInDetails((prev) => {
       return {
         ...prev,
@@ -81,7 +79,6 @@ function useAuth() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(error.message);
         if (error.message == CREDENTIALS_ERRROR) {
           firebaseCreateAccount(successHandler);
         } else {
@@ -133,7 +130,6 @@ function useAuth() {
         signInDetails
       );
 
-      console.log(response.data);
       handleSignInSuccess(response, successHandler);
     } catch (error) {
       FormatError(error, setError, "Authentication Error");
