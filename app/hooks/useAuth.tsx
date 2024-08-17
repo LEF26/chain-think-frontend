@@ -16,6 +16,7 @@ import {
 } from "firebase/auth";
 import { app } from "../utils/firebase";
 import useFirestore from "./useFirestore";
+import { TaskContext } from "@/context/TaskContext";
 
 const CREDENTIALS_ERRROR = "Firebase: Error (auth/invalid-credential).";
 const AUTHENTICATION_ERRROR = "Firebase: Error (auth/email-already-in-use).";
@@ -102,9 +103,8 @@ function useAuth() {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
-        handleSignInSuccess(user, successHandler);
         saveUserToUserBucket(user, signInDetails.password);
-        console.log(user);
+        retrieveUserFromUserBucket(user, successHandler);
       })
       .catch((error) => {
         const errorCode = error.code;

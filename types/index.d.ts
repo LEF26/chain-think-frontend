@@ -52,4 +52,12 @@ export type ErrorType = {
   error: string;
 } | null;
 
+
+export type FirebaseTaskType = {
+    id: string,
+    title: string,
+    description: string,
+    value: number
+}
+
 export type StateErrorType = Dispatch<SetStateAction<ErrorType | null>>;

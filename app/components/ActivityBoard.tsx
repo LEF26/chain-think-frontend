@@ -2,13 +2,22 @@ import { FaCircleArrowUp, FaCircleArrowDown } from "react-icons/fa6";
 import { MdSwapHorizontalCircle } from "react-icons/md";
 import { AiFillCodepenCircle } from "react-icons/ai";
 
-function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
+function ActivityBoard({
+  toogleModal,
+  user,
+  toogleReceiptModal,
+}: {
+  toogleModal: () => void;
+  user: any;
+  toogleReceiptModal: () => void;
+}) {
   const handleCopyClick = () => {
-    navigator.clipboard.writeText('05693993094995995059')
+    navigator.clipboard
+      .writeText("05693993094995995059")
       .then(() => {
         alert("Address copied to clipboard!");
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to copy text: ", err);
       });
   };
@@ -24,20 +33,28 @@ function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
             <span className="text-gray-700 hidden md:block font-semibold text-sm">
               My Balance
             </span>
-            <span className="text-xl md:text-3xl font-semibold ">$0.00</span>
+            <span className="text-xl md:text-3xl font-semibold ">
+              ${user?.balance}.00
+            </span>
             <span className="text-gray-700 font-semibold text-sm">
-              0.0000000 BTC
+              {user?.balance * 0.000017} BTC
             </span>
           </div>
         </div>
 
         {/* Right hand of activity */}
         <div className=" w-full md:w-[50%] grid grid-cols-4 md:grid-cols-2 pt-5">
-          <button onClick={handleCopyClick} className="flex flex-col text-gray-700 text-sm items-center">
+          <button
+            onClick={handleCopyClick}
+            className="flex flex-col hover:underline text-gray-700 text-sm items-center"
+          >
             <FaCircleArrowUp className="text-primaryColor text-3xl" />
             Send
           </button>
-          <button className="flex flex-col text-gray-700 text-sm items-center">
+          <button
+            onClick={toogleReceiptModal}
+            className="flex flex-col hover:underline text-gray-700 text-sm items-center"
+          >
             <FaCircleArrowDown className="text-primaryColor text-3xl" />
             Receive
           </button>
@@ -46,7 +63,10 @@ function ActivityBoard({toogleModal}: {toogleModal: () => void}) {
             Swap
           </button>
 
-          <button onClick={toogleModal} className="flex flex-col cursor-pointer hover:underline text-gray-700 text-sm items-center">
+          <button
+            onClick={toogleModal}
+            className="flex flex-col cursor-pointer hover:underline text-gray-700 text-sm items-center"
+          >
             <AiFillCodepenCircle className="text-primaryColor text-3xl" />
             Withdraw
           </button>

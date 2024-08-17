@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useAuth from "../hooks/useAuth";
 import FormButton from "../components/FormButton";
-import { FormEvent, FormEventHandler } from "react";
+import { FormEvent, FormEventHandler, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import useFirestore from "../hooks/useFirestore";
 
@@ -13,19 +13,21 @@ import useFirestore from "../hooks/useFirestore";
 // }
 
 function SignUp() {
-  const { loading, signInDetails, onTextChange, error, firebaseSignIn } = useAuth();
- const router = useRouter()
+  const { loading, signInDetails, onTextChange, error, firebaseSignIn } =
+    useAuth();
+
+
+  const router = useRouter();
 
   function handleOnSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // signIn(() => {
-    // });
-
     firebaseSignIn(() => {
-      router.push('/dashboard')
-    })
+      router.push("/dashboard");
+    });
   }
+
+  useEffect(() => {}, []);
 
   return (
     <>

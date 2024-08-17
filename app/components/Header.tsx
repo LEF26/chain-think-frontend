@@ -2,7 +2,7 @@ import Image from "next/image";
 import ActivityBoard from "./ActivityBoard";
 import { User } from "@/types";
 
-function Header({user, toogleModal}: {user:any, toogleModal: () => void}) {
+function Header({user, toogleModal, toogleReceiptModal}: {user:any, toogleModal: () => void, toogleReceiptModal: () => void}) {
 
   const getFullName = () => {
       return user?.displayName ? user?.displayName : user?.email
@@ -22,7 +22,7 @@ function Header({user, toogleModal}: {user:any, toogleModal: () => void}) {
       </div>
 
       {/* ActicityMenu */}
-      <ActivityBoard toogleModal={toogleModal}/>
+      <ActivityBoard user={user} toogleModal={toogleModal} toogleReceiptModal={toogleReceiptModal}/>
     </header>
   );
 }
