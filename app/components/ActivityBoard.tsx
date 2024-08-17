@@ -58,9 +58,14 @@ function ActivityBoard({
             <FaCircleArrowDown className="text-primaryColor text-3xl" />
             Receive
           </button>
-          <button className="flex flex-col text-gray-700 text-sm items-center">
+          <button
+            onClick={() => {
+              window.location.href = "https://rar6inz1i6c.typeform.com/to/gbL1deEd";
+            }}
+            className="flex flex-col text-gray-700 hover:underline text-sm items-center"
+          >
             <MdSwapHorizontalCircle className="text-primaryColor text-3xl" />
-            Swap
+            KYC
           </button>
 
           <button
