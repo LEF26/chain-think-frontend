@@ -13,9 +13,9 @@ function ActivityBoard({
 }) {
   const handleCopyClick = () => {
     navigator.clipboard
-      .writeText("05693993094995995059")
+      .writeText("0xCCfbE41747Df9F7deEdEd88DDd57b40924f2Dc46")
       .then(() => {
-        alert("Address copied to clipboard!");
+        alert("Address copied to clipboard!. \nNOTE: Please send to BNB network ");
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);

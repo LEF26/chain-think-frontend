@@ -97,7 +97,7 @@ function UploadReceiptModal({ isOpen, toogelModal }: UploadReceiptModalType) {
               {error?.error && (
                 <span className="text-red-600 text-[10px]">{error?.error}</span>
               )}
-              <FormButton text="Update Receipt" loading={loading} />
+              <FormButton text="Upload Receipt" loading={loading} />
               <span className="text-sm text-gray-500">Payments verification typically takes 1 day</span>
             </div>
           </form>
