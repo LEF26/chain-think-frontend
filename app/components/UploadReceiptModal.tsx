@@ -68,7 +68,7 @@ function UploadReceiptModal({ isOpen, toogelModal }: UploadReceiptModalType) {
           >
             <h1 className=" text-md md:text-lg font-bold">
               {" "}
-              Upgrade your payment reciept
+              Upload your payment reciept
             </h1>
 
             <label
