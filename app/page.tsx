@@ -31,7 +31,7 @@ export default function Home() {
           Get Started
         </Link>
         <span className="text-[10px] text-center px-[5px]">
-          By tapping Get Started you agree and adhere to out{" "}
+          By tapping Get Started you agree and adhere to our{" "}
           <span className="text-primaryColor">Terms of Service</span> and{" "}
           <span className="text-primaryColor">Privacy Policy</span>
         </span>
