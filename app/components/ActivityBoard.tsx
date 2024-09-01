@@ -15,7 +15,7 @@ function ActivityBoard({
     navigator.clipboard
       .writeText("0xCCfbE41747Df9F7deEdEd88DDd57b40924f2Dc46")
       .then(() => {
-        alert("Address copied to clipboard!. \nNOTE: Please send to BNB network ");
+        alert("Address copied to clipboard! \nNOTE: Please send to ETH network ");
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);
